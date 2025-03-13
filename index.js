@@ -1,8 +1,5 @@
-// function expression
-let product = (x, y) => {
-  var a = x * y;
-  return a - 10;
-};
+// function expression using arrow function
+let product = (x, y) => x * y;
 
 result = product(5, 10);
 
