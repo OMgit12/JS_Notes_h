@@ -37,7 +37,7 @@ function pop() {
     console.log("Stack Underflow");
   }
   if (currentsize > 0) {
-    currentsize = currentsize - 1;
+    currentsize = currentsize - 2;
     console.log(data[currentsize]);
     console.log(data);
   }
