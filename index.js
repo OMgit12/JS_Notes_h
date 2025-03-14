@@ -32,13 +32,18 @@ function push(newelement) {
   }
 }
 
+/**
+ * Removes the top element from the stack and updates the current size.
+ * If the stack is empty, logs a message indicating the stack is empty.
+ */
+
 function pop() {
   if (currentsize <= 0) {
-    console.log("Stack Underflow");
+    console.log("Stack is empty");
   }
   if (currentsize > 0) {
-    currentsize = currentsize - 1;
     console.log(data[currentsize]);
+    currentsize = currentsize - 1;
     console.log(data);
   }
 }
