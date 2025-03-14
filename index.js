@@ -14,3 +14,4 @@ function sum(x, y) {
 
 result = sum(5, 10);
 console.log(result); // 15
+
