@@ -18,6 +18,7 @@
 
 let data = [];
 let currentsize = data.length;
+console.log(currentsize);
 
 let max = 5;
 
