@@ -1,57 +1,22 @@
-// // function expression
-// let product = (x, y) => {
-//   console.log(y);
-//   return x * y;
-// };
+// JavaScript is a versatile, high-level programming language that is widely supported across all major operating systems.
 
-// result = product(5);
+// Declare Variables in JavaScript
+// In JavaScript, we use the "var" or "let" keywords to declare variables. For example,
+var age;
+let name;
 
-// console.log(result); // 50
+// Initialize Variables in JavaScript
+// declare variable num
+let num;
+// assign 5 to num
+num = 5;
 
-// // function declaration
-// function sum(x, y) {
-//   return x + y;
-// }
+// JavaScript Constants
+// A constant is a type of variable whose value cannot be changed.
+// assign 5 to num
+const numbr = 5;
 
-// result = sum(5, 10);
-// console.log(result); // 15
-
-let data = [];
-let currentsize = data.length;
-console.log(currentsize);
-
-let max = 5;
-
-function push(newelement) {
-  if (currentsize >= max) {
-    console.log("Stack Overflow");
-  }
-  if (currentsize < max) {
-    data[currentsize] = newelement;
-    currentsize = currentsize + 1;
-    console.log(data);
-  }
-}
-
-/**
- * Removes the top element from the stack and updates the current size.
- * If the stack is empty, logs a message indicating the stack is empty.
- */
-
-function pop() {
-  if (currentsize <= 0) {
-    console.log("Stack is empty");
-  }
-  if (currentsize > 0) {
-    console.log(data[currentsize]);
-    currentsize = currentsize - 1;
-    console.log(data);
-  }
-}
-
-push(1);
-push(2);
-push(3);
-
-pop();
-pop();
+// assign 10 to num
+numbr = 10;
+console.log(numbr); // Error! constant cannot be changed
+// Always Initialize a Constant During Declaration
