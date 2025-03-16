@@ -54,4 +54,48 @@ console.log(result, "-", typeof result);
 // js mei jb bhi apn kisi string ko number mei convert krna hota hai to use parseInt() function use krte hain.
 let str = "123";
 let num1 = parseInt(str);
-console.log(num1);
+// console.log(num1);
+
+let a = "123.45";
+console.log(a);
+
+// if-else statement
+let rating = 2.5;
+
+if (rating <= 2) {
+  console.log("poor");
+} else if (rating < 4) {
+  console.log("good");
+} else {
+  console.log("excellent");
+}
+
+// for lOOP in js
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+// while loop in js
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+// do-while loop in js
+let j = 0;
+do {
+  console.log(j);
+  j++;
+} while (j < 5);
+
+// switch case in js
+let day = "sunday";
+switch (day) {
+  case "monday":
+    console.log("monday");
+    break;
+  case "tuesday":
+    console.log("tuesday");
+    break;
+  default:
+    console.log("invalid day");
+}
