@@ -74,12 +74,14 @@ if (rating <= 2) {
 for (let i = 0; i < 5; i++) {
   console.log(i);
 }
+
 // while loop in js
 let i = 0;
 while (i < 5) {
   console.log(i);
   i++;
 }
+
 // do-while loop in js
 let j = 0;
 do {
@@ -98,4 +100,13 @@ switch (day) {
     break;
   default:
     console.log("invalid day");
+}
+
+// continue statement in js
+for (let i = 1; i <= 10; ++i) {
+  // skip iteration if value of i is between 4 and 9
+  if (i > 4 && i < 9) {
+    continue; // this will skip the iteration of the loop for the value of i between 4 and 9 and continue with the next iteration of the loop.
+  }
+  console.log(i);
 }
