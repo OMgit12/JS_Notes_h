@@ -110,3 +110,12 @@ for (let i = 1; i <= 10; ++i) {
   }
   console.log(i);
 }
+
+function display() {
+  console.log("Hello World!");
+  return "retuen  Hello World!";
+  console.log("this will after return!"); // this will not execute because return statement is the last statement of the function.
+}
+
+const setfj = display();
+console.log(setfj); 
