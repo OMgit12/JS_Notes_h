@@ -41,6 +41,7 @@ for (let i = 0; i < array.length; i++) {
 }
 
 const number = [1, 2, 3, 4, 5, 6];
+
 // inbuilt array methods in js
 // map() method in js array to iterate over the array and return the new array
 const newNumber = number.map((num, index, array) => {
@@ -49,7 +50,7 @@ const newNumber = number.map((num, index, array) => {
 // console.log(newNumber);
 
 // filter() method in js array to filter the array based on the condition and return the new array
-const filterNumber = number.filter((num) => {
+const filterNumber = number.filter((num, index, array) => {
   return num > 3;
 });
 // console.log(filterNumber);
@@ -62,13 +63,19 @@ const reduceNumber = number.reduce((acc, current) => {
 // console.log(reduceNumber);
 
 // some method in js array to check if any element in the array satisfy the condition and return true or false
-const someNumber = number.some((num) => {
+const someNumber = number.some((num, index, array) => {
   return num > 3;
 });
 // console.log(someNumber);
 
 // every method in js array to check if all the element in the array satisfy the condition and return true or false
-const everyNumber = number.every((num) => {
+const everyNumber = number.every((num, index, array) => {
   return num > 3;
 });
-console.log(everyNumber);
+// console.log(everyNumber);
+
+// find method in js array to find the first element in the array which satisfy the condition
+const findNumber = number.find((num, index, array) => {
+  return num > 3;
+});
+console.log(findNumber);
