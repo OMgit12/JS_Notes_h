@@ -86,4 +86,22 @@ const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 
 const arr3 = [...arr1, ...arr2];
-console.log(arr3);
+// console.log(arr3);
+
+// rest operator in js
+const [first, ...rest] = arr3;
+// console.log(first);
+// console.log(rest);
+
+// others methods in js array
+// concat() method in js array to merge two or more arrays
+const arr4 = arr1.concat(arr2);
+console.log(arr4);
+
+// slice() method in js array to return the part of the array
+const arr5 = arr4.slice(1, 3); // return the array from index 1 to 3
+console.log(arr5);
+
+// splice() method in js array to add or remove the element from the array
+const arr6 = arr4.splice(1, 2); // remove the element from index 1 to 2
+console.log(arr6);
