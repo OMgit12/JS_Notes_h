@@ -78,4 +78,12 @@ const everyNumber = number.every((num, index, array) => {
 const findNumber = number.find((num, index, array) => {
   return num > 3;
 });
-console.log(findNumber);
+// console.log(findNumber);
+
+// spread and rest operator in js array
+// spread operator in js
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
