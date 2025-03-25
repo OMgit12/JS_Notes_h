@@ -85,6 +85,7 @@ const findNumber = number.find((num, index, array) => {
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 
+// merge two array using spread operator in js spread operator basically used spread( felana )  the array or object in js
 const arr3 = [...arr1, ...arr2];
 // console.log(arr3);
 
@@ -96,12 +97,31 @@ const [first, ...rest] = arr3;
 // others methods in js array
 // concat() method in js array to merge two or more arrays
 const arr4 = arr1.concat(arr2);
-console.log(arr4);
+// console.log(arr4);
 
 // slice() method in js array to return the part of the array
 const arr5 = arr4.slice(1, 3); // return the array from index 1 to 3
-console.log(arr5);
+// console.log(arr5);
 
 // splice() method in js array to add or remove the element from the array
-const arr6 = arr4.splice(1, 2); // remove the element from index 1 to 2
-console.log(arr6);
+const arr6 = arr4.splice(1, 4); // remove the element from index 1 to 4
+// console.log(arr6);
+const arr7 = arr4.splice(1, 1);
+// console.log(arr7);
+
+// flat method in js array to flat the array of array like [[1,2],[3,4]] to [1,2,3,4]
+const arr8 = [
+  [1, 2],
+  [[7, 8], 3, 4],
+];
+
+const arr9 = arr8.flat(2); // flat the array of array to 2 level
+// console.log(arr9);
+
+// reverse method in js array to reverse the array element in the array
+const arr10 = [1, 2, 3, 4, 5];
+console.log(arr10.reverse()); // output [1,2,3,4,5] to [5,4,3,2,1]
+
+// sort method in js array to sort the array element in the array
+const arr11 = [3, 1, 4, 2, 5];
+console.log(arr11.sort()); // output [3,1,4,2,5] to [1,2,3,4,5]
