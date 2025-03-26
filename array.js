@@ -120,8 +120,33 @@ const arr9 = arr8.flat(2); // flat the array of array to 2 level
 
 // reverse method in js array to reverse the array element in the array
 const arr10 = [1, 2, 3, 4, 5];
-console.log(arr10.reverse()); // output [1,2,3,4,5] to [5,4,3,2,1]
+// console.log(arr10.reverse()); // output [1,2,3,4,5] to [5,4,3,2,1]
 
 // sort method in js array to sort the array element in the array
 const arr11 = [3, 1, 4, 2, 5];
-console.log(arr11.sort()); // output [3,1,4,2,5] to [1,2,3,4,5]
+arr11.sort(
+  (a, b) => {
+    // a is the first element and b is the second element in the array
+    return a - b; // if return positive then b comes first and if return negative then a comes first
+  } // sort the array in ascending order
+);
+
+// console.log(arr11); // output [3,1,4,2,5] to [1,2,3,4,5]
+
+arr11.sort(
+  (a, b) => {
+    return b - a; // if return positive then a comes first and if return negative then b comes first
+  } // sort the array in descending order
+);
+// console.log(arr11); // output [3,1,4,2,5] to [5,4,3,2,1]
+
+// question asked in the interview related to array
+// Q1 - second largest element in the array
+const arr12 = [12, 35, 10, 1, 34, 1];
+
+function secondLargest(arr) {
+  const setArr = new Set(arr);
+  console.log(setArr);
+}
+
+secondLargest(arr12);
