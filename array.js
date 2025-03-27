@@ -145,8 +145,11 @@ arr11.sort(
 const arr12 = [12, 35, 10, 1, 34, 1];
 
 function secondLargest(arr) {
-  const setArr = new Set(arr);
-  console.log(setArr);
+  const setArr = Array.from(new Set(arr));
+  // console.log(setArr);
+  setArr.sort((a, b) => {
+    return b - a;
+  });
 }
 
 secondLargest(arr12);
