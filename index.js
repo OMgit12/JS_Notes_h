@@ -118,4 +118,4 @@ function display() {
 }
 
 const setfj = display();
-console.log(setfj); 
+console.log(setfj);
