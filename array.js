@@ -159,3 +159,5 @@ function secondLargest(arr) {
 }
 
 secondLargest(arr12);
+
+console.log("hello world");
