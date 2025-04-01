@@ -121,6 +121,6 @@ const setfj = display();
 console.log(setfj);
 
 // function expression in js
-const add = function (a, b) {    
+const add = function (a, b) {
   return a + b;
 };
