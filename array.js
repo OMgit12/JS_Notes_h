@@ -35,17 +35,17 @@ array.unshift("apple");
 for (let i = 0; i < array.length; i++) {
   if (typeof array[i] === "object") {
     // console.log(array[i].name);
-    break;
+    break; // this will break the loop if the element is an object
   }
-  //   console.log(array[i]);
+  console.log(array[i]); // this will log the current element if it is not an object
 }
 
 const number = [1, 2, 3, 4, 5, 6];
 
 // inbuilt array methods in js
 // map() method in js array to iterate over the array and return the new array
-const newNumber = number.map((num, index, array) => {
-  return { index: index, value: num * 2 };
+const newNumber = number.map((value, index, array) => {
+  return { index: index, value: value * 2 };
 });
 // console.log(newNumber);
 

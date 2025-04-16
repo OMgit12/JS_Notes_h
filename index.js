@@ -54,7 +54,7 @@ console.log(result, "-", typeof result);
 // js mei jb bhi apn kisi string ko number mei convert krna hota hai to use parseInt() function use krte hain.
 let str = "123";
 let num1 = parseInt(str);
-// console.log(num1);
+// console.log(typeof num1);
 
 let a = "123.45";
 console.log(a);
@@ -71,7 +71,7 @@ if (rating <= 2) {
 }
 
 // for lOOP in js
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i++) { // for loop is used to iterate over the array or object in js
   console.log(i);
 }
 
@@ -108,17 +108,17 @@ for (let i = 1; i <= 10; ++i) {
   if (i > 4 && i < 9) {
     continue; // this will skip the iteration of the loop for the value of i between 4 and 9 and continue with the next iteration of the loop.
   }
-  console.log(i);
+  // console.log(i);
 }
 
 function display() {
-  console.log("Hello World!");
+  // console.log("Hello World!");
   return "retuen  Hello World!";
   console.log("this will after return!"); // this will not execute because return statement is the last statement of the function.
 }
 
 const setfj = display();
-console.log(setfj);
+// console.log(setfj);
 
 // function expression in js
 const add = function (a, b) {
