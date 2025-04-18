@@ -140,24 +140,47 @@ arr11.sort(
 );
 // console.log(arr11); // output [3,1,4,2,5] to [5,4,3,2,1]
 
+
+
 // question asked in the interview related to array
 // Q1 - second largest element in the array
 const arr12 = [12, 35, 10, 1, 34, 1];
 
 function secondLargest(arr) {
-  const setArr = Array.from(new Set(arr));
+  const setArr = Array.from(new Set(arr)); // new Set(arr) is used to create a set object from the array and set object only allow unique values.
+  // Array.from() method is used to create a new array from the set object
   // console.log(setArr);
-  for (let i = 0; i < setArr.length; i++) {
-    for (let j = i + 1; j < setArr.length; j++) {
-      if (setArr[i] < setArr[j]) {
-        let temp = setArr[i];
-        setArr[i] = setArr[j];
-        setArr[j] = temp;
-      }
-    }
+
+  setArr.sort((a, b) => {
+    return b - a; // sort the array in descending order
+  });
+
+  // console.log(setArr); // this will return the array in descending order
+
+  if (setArr.length >= 2) {
+    // console.log(setArr[1]); // return the second largest element in the array
+    return setArr[1]; // this will return the second largest element in the array
+  } else {
+    console.log("No second largest element found"); // this will return if there is no second largest element in the array
   }
 }
 
 secondLargest(arr12);
 
-console.log("hello world");
+// second method to find the second largest element in the array
+
+const secondLargestElement = (arr) => {
+  let largest = -Infinity; // this will return the largest element in the array
+  let secondLargest = -Infinity; // this will return the second largest element in the array
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      secondLargest = largest; // this will return the second largest element in the array
+      largest = arr[i]; // this will return the largest element in the array
+    } else if (arr[i] > secondLargest && arr[i] !== largest) {
+      secondLargest = arr[i]; // this will return the second largest element in the array
+    }
+  }
+}
+
+console.log(secondLargestElement(arr12)); 

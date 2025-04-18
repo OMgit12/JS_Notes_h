@@ -121,6 +121,61 @@ const setfj = display();
 // console.log(setfj);
 
 // function expression in js
-const add = function (a, b) {
+const add = function (a, b) {  // in function expression, function is assigned to a variable and can be called using the variable name.
   return a + b;
 };
+
+// console.log(add(1, 2));
+
+
+
+
+// JavaScript Variable Scope
+// Based on the scope they're declared in, variables can be classified as:
+
+// Global Variables
+// Local Variables
+// Block-Level Variables
+
+// Local Variables
+// Local variables are declared inside a function and can only be accessed within that function. For example:
+function localVariable() {
+  let x = 10; // local variable , can not be accessed outside the function 
+  console.log(x); // 10
+}
+// localVariable(); // 10
+console.log(x); // Error! x is not defined
+
+
+// Global Variables
+// Global variables are declared outside any function and can be accessed from anywhere in the program. For example:
+let y = 20; // global variable , can be accessed outside the function
+
+function hello() {
+  console.log(y); // 20
+}
+// hello(); // 20
+// console.log(y); // 20
+
+
+// Block-Level Variables
+//JavaScript ES6 introduced block-level scoping with the 'let' and 'const' keywords.
+// Block-level variables are declared inside a block (enclosed in curly braces {}) and can only be accessed within that block. For example:
+
+function display_scopes() {
+  // declare variable in local scope
+  let message = "local";
+
+  if (true) {
+
+    // declare block-level variable
+    let message = "block-level";
+
+    console.log(`inner scope: ${message}`);
+  }
+
+  console.log(`outer scope: ${message}`);
+}
+
+// display_scopes(); // inner scope: block-level  && outer scope: local
+
