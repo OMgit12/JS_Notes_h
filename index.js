@@ -237,7 +237,7 @@ function greeting() {
 // Recursion is a programming technique where a function calls itself to solve a problem. For example, the following function counts down from a given number to 1:
 function Counter(count) {
 
-  console.log(count);
+  // console.log(count);
 
   if (count > 1) {
     count = count - 1;  // decrement the count by 1
@@ -250,3 +250,144 @@ function Counter(count) {
 
 
 Counter(5); // 5 4 3 2 1
+
+
+function fatorial(a) {
+  // console.log(a);
+
+  if (a > 1) {
+    return (a * fatorial(a - 1)); // decrement the count by 1 and call the function again with the decremented value of a
+  }
+  else {
+    return 1;
+  }
+}
+
+const sdfjfjf = fatorial(3); // this will call only once  
+// console.log(sdfjfjf); // 6
+
+
+
+
+
+// JavaScript Objects
+// JavaScript object is a variable that can store multiple data in key-value pairs.
+
+// student object
+const student = {
+  firstName: "Jack",
+  rollNo: 32
+};
+
+// console.log(student);
+// Output: { firstName: 'Jack', rollNo: 32 }
+
+// in this firstName is the key and Jack is the value of the key firstName
+// firstName: "Jack" and rollNo: 32 are the properties of the object student
+
+// Access Object Properties
+// console.log(student.firstName); // Jack // this is using . notation to access the property of the object
+// console.log(student["rollNo"]); // Jack // this is using [] notation to access the property of the object
+
+
+// JavaScript Object Operations
+// In JavaScript, we can perform various operations on object properties like modifying, adding, deleting, and so on. Let's discuss some of them.
+
+// 1. Modify Object Properties
+// We can modify object properties by assigning a new value to an existing key.For example,
+const person = {
+  name: "Bobby",
+  hobby: "Dancing",
+};
+
+// modify property
+person.hobby = "Singing";
+
+// display the person object
+// console.log(person);
+
+// Output: { name: 'Bobby', hobby: 'Singing' }
+
+// 2. Add Object Properties
+const students = {
+  name: "John",
+  age: 20,
+};
+
+// add properties
+students.rollNo = 14;
+students.faculty = "Science";
+
+// display the object
+// console.log(students);
+// Output: { name: 'John', age: 20, rollNo: 14, faculty: 'Science' }
+
+// 3. Delete Object Properties
+// We can remove properties from an object using the "delete" operator. For example,
+
+const employee = {
+  name: "Tony",
+  position: "Officer",
+  salary: 30000,
+};
+
+// delete object property
+delete employee.salary
+
+// display the object
+// console.log(employee);
+
+// Output: { name: 'Tony', position: 'Officer' }
+
+
+//  JavaScript Object Methods
+// We can also include functions inside an object. For example,
+
+const person = {
+  name: "Bob",
+  age: 30,
+
+  // use function as value
+  greet: function () { // anonimous function is used as a method of the object
+    console.log("Bob says Hi!");
+  }
+};
+
+// call object method 
+// objectName.methodKey(); // this will call the method of the object and execute the function inside the method
+person.greet();  // Bob says Hi!
+
+
+// JavaScript this Keyword
+// We use this keyword in an object method to access a property of the same object. For example,
+// person object
+const person = {
+  name: "John",
+  age: 30,
+
+  // method
+  introduce: function () {
+    console.log(`My name is ${this.name} and I'm ${this.age} years old.`);
+  }
+};
+// access the introduce() method
+person.introduce();
+// Output: My name is John and I'm 30 years old.
+
+
+// Add Methods to an Object
+// You can add more methods to a JavaScript object even after we've defined it. For example,
+
+let studentss = {
+  name: "John"
+};
+
+// add new method
+studentss.greet = function () {
+  console.log("Hello");
+};
+
+// access greet() method
+studentss.greet();
+// Output: Hello
+
