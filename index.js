@@ -230,3 +230,23 @@ function greeting() {
   console.log("Welcome to Programiz.");
 }
 
+
+
+
+// JavaScript Recursion
+// Recursion is a programming technique where a function calls itself to solve a problem. For example, the following function counts down from a given number to 1:
+function Counter(count) {
+
+  console.log(count);
+
+  if (count > 1) {
+    count = count - 1;  // decrement the count by 1
+    Counter(count); // recursive function call means the function will call itself until the condition is false | count value is now 4 then 3 then 2 then 1
+  }
+  else {
+    return  // in this case the function will return undefined and the recursion will stop.
+  }
+}
+
+
+Counter(5); // 5 4 3 2 1
