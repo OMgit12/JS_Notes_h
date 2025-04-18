@@ -144,7 +144,7 @@ function localVariable() {
   console.log(x); // 10
 }
 // localVariable(); // 10
-console.log(x); // Error! x is not defined
+// console.log(x); // Error! x is not defined
 
 
 // Global Variables
@@ -178,4 +178,55 @@ function display_scopes() {
 }
 
 // display_scopes(); // inner scope: block-level  && outer scope: local
+
+
+
+
+// JavaScript Hoisting
+// In JavaScript, hoisting is a behavior in which a function or a variable can be used before declaration.
+// example of variable hoisting in JavaScript
+
+// use test variable before declaring
+console.log(test);
+// declare and initialize test variable
+var test = 5;
+// Output: undefined
+
+
+// There are generally two types of hoistings in JavaScript:
+// 1 Variable Hoisting
+// 2 Function Hoisting
+
+// Variable Hoisting
+// Variable hoisting is a JavaScript mechanism where variables are moved to the top of their scope during the compile phase. For example:
+// Hoisting With 'var'
+// When we declare a variable using var, it is hoisted to the top of its current scope. For example,
+// use the message variable before declaration
+console.log(message);
+
+// variable declaration using var keyword
+var message;
+// Output: undefined
+
+
+// Hoisting With 'let' and 'const'
+// When we declare a variable using let or const, it is not hoisted to the top of its current scope. For example,
+
+// use the message variable before declaration
+// console.log(all);
+
+// variable declaration using let keyword
+let all;
+// output = ReferenceError: Cannot access 'message' before initialization
+
+// 2 function hoisting in js
+// In JavaScript, function hoisting allows us to call the function before its declaration.
+
+// function call
+greeting();
+
+// function declaration
+function greeting() {
+  console.log("Welcome to Programiz.");
+}
 
