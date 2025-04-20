@@ -343,7 +343,7 @@ delete employee.salary
 //  JavaScript Object Methods
 // We can also include functions inside an object. For example,
 
-const person = {
+const personn = {
   name: "Bob",
   age: 30,
 
@@ -355,13 +355,13 @@ const person = {
 
 // call object method 
 // objectName.methodKey(); // this will call the method of the object and execute the function inside the method
-person.greet();  // Bob says Hi!
+personn.greet();  // Bob says Hi!
 
 
 // JavaScript this Keyword
 // We use this keyword in an object method to access a property of the same object. For example,
 // person object
-const person = {
+const person_q = {
   name: "John",
   age: 30,
 
@@ -371,7 +371,7 @@ const person = {
   }
 };
 // access the introduce() method
-person.introduce();
+person_q.introduce();
 // Output: My name is John and I'm 30 years old.
 
 
@@ -391,3 +391,131 @@ studentss.greet = function () {
 studentss.greet();
 // Output: Hello
 
+
+
+
+// JavaScript Constructor Function
+// In JavaScript, a constructor function is used to create and initialize objects. for example
+function personsss() {
+  this.name = "John"; // "this" keyword is used to refer to the current object
+  this.age = 30; // "this" keyword is used to refer to the current object
+}
+
+// create object using constructor function
+const person_2 = new personsss(); // new keyword is used to create a new object from the constructor function
+// print the object
+// console.log(person.name); // John 
+
+
+// constructor function with crate multiple objects
+function Person() {
+  this.name = "John",
+    this.age = 23,
+
+    this.greet = function () {
+      console.log("hello");
+    }
+}
+
+// create objects
+const person1 = new Person();
+const person2 = new Person();
+
+// access properties
+// console.log(person1.name);  // John
+// console.log(person2.greet()); // hello
+
+
+// JavaScript Constructor Function Parameters
+function daku(name, age, hobby) {
+  this.name = name;
+  this.age = age;
+  this.hobby = hobby;
+  this.greet = function () {
+    console.log("Harry says hi!");
+  }
+}
+
+const daku1 = new daku("John", 23, "dancing");
+// console.log(daku1.name); // John
+// console.log(daku1.greet()); // hello
+
+
+
+
+// JavaScript Getter and Setter
+// In JavaScript, we can use getter and setter methods to access and modify object properties.
+
+// In JavaScript, there are two kinds of object properties:
+// 1: Data properties
+// 2: Accessor properties
+
+// Data Property
+// Here's an example of data property that we have been using in the previous tutorials.
+const student_name = {
+
+  // data property
+  firstName: 'Monica',
+};
+
+// Accessor Property
+// In JavaScript, accessor properties are methods that get or set the value of an object. For that, we use these two keywords:
+// JavaScript Getter
+// In JavaScript, getter methods are used to access the properties of an object.For example,
+const studentsss = {
+
+  // data property
+  firstName: 'Monica',
+
+  // accessor property(getter)
+  get getName() {
+    return this.firstName;
+  }
+};
+
+// accessing data property
+// console.log(studentsss.firstName); // Monica
+
+// accessing getter methods
+// console.log(studentsss.getName); // Monica
+
+// trying to access as a method
+// console.log(studentsss.getName()); // error
+
+
+// JavaScript Setter
+// In JavaScript, setter methods are used to change the values of an object.For example,
+
+const studentdssssss = {
+  firstName: 'Monica',
+
+  //accessor property(setter)
+  set changeName(newName) {
+    this.firstName = newName;
+  }
+};
+
+// console.log(studentdssssss.firstName); // Monica
+
+// change(set) object property using a setter
+studentdssssss.changeName = 'Sarah';
+
+// console.log(studentdssssss.firstName); // Sarah
+
+
+
+
+// javaScript prototype methods
+// In JavaScript, prototype is a built-in property of an object that allows us to add new properties and methods to an object. For example,
+function car() {
+  console.log("car is running");
+}
+
+car.prototype.name = "Honda";
+car.prototype.color = "red";
+car.prototype.start = function () {
+  console.log("car is starting");
+};
+
+
+// console.log(car.prototype.name);
