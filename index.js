@@ -516,6 +516,123 @@ car.prototype.color = "red";
 car.prototype.start = function () {
   console.log("car is starting");
 };
-
-
 // console.log(car.prototype.name);
+
+
+// javaScript for in loop
+// The JavaScript for...in loop iterates over the keys of an object.
+const studentall = {
+  name: "Monica",
+  class: 7
+};
+
+// loop through the keys of student object
+for (let key in studentall) {
+
+  // display the key-value pairs
+  // console.log(`${key} => ${student[key]}`); // student[key] is used to access the value of the key in the object
+};
+// Output:
+// name => Monica
+// class => 7
+
+
+
+// JavaScript Number
+// In JavaScript, numbers are used to represent numerical values. They can be whole numbers (like 5, 10, 100) or decimal numbers (like 3.13, 0.5, 10.75). For example,
+let num11 = 5;
+let num2 = 3.13;
+
+// JavaScript NaN
+// NaN(Not a Number) is a special value that is returned when a mathematical operation cannot produce a meaningful numeric result.
+let num4 = 4 - "hello";
+// console.log(num); // NaN
+
+// JavaScript Infinity
+// Infinity is a special value that signifies an amount larger than any finite number.For example,
+let hej = 2 / 0;
+// console.log(hej); // Infinity
+
+let asfhss = -2 / 0;
+// console.log(asfhss); // -Infinity
+
+
+// JavaScript Symbol
+// The JavaScript ES6 introduced a new primitive data type called Symbol.Symbols are immutable(cannot be changed) and are unique.For example,
+// two symbols with the same description
+
+const value10 = Symbol('hello');
+const value12 = Symbol('hello');
+
+// console.log(value10 === value12); // false
+
+
+
+
+
+// JavaScript try...catch...finally Statement
+// The try, catch and finally blocks are used to handle exceptions(a type of an error).Before you learn about them, you need to know about the types of errors in programming.
+// Types of Errors
+// 1: Syntax Error = cont = 5 // in this show syntax error because cont is not defined
+// 2: Runtime Error = 5 / 0 // in this show runtime error because we are dividing by zero
+
+// These errors that occur during runtime are called "exceptions". Now, let's see how you can handle these exceptions.
+
+
+//  JavaScript try...catch Statement is used to handle the exceptions
+try {
+  // body of try
+}
+catch (error) {
+  // body of catch  
+}
+// The main code is inside the try block. While executing the try block, if any error occurs, it goes to the catch block. The catch block handles the errors as per the catch statements.
+// If no error occurs, the code inside the try block is executed and the catch block is skipped.
+
+// program to show try...catch in a program
+const numerator = 100, denominator = 'a';
+
+try {
+  console.log(numerator / denominator);
+
+  // forgot to define variable a      
+  console.log(sdksa);
+}
+catch (error) {
+  console.log('An error caught');
+  console.log('Error message: ' + error);
+}
+
+
+// JavaScript try...catch...finally Statement
+// You can also use the try...catch...finally statement to handle exceptions.The finally block executes both when the code runs successfully or if an error occurs.
+const numerator1 = 100, denominator1 = 'a';
+
+try {
+  console.log(numerator1 / denominator1);
+  console.log(sfjsfjsd);
+}
+catch (error) {
+  console.log('An error caught');
+  console.log('Error message: ' + error);
+}
+finally {
+  console.log('Finally will execute every time');
+}
+
+
+// JavaScript try...catch in setTimeout
+// The try...catch won't catch the exception if it happened in "timed" code, like in setTimeout(). For example,
+
+try {
+  setTimeout(() => {
+    console.log(5 / 0);
+  })
+} catch (error) {
+  console.log('An error caught');
+  console.log('Error message: ' + error);
+}
+
+
+
+
