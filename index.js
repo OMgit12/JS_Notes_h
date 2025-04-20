@@ -627,7 +627,7 @@ finally {
 try {
   setTimeout(() => {
     console.log(5 / 0);
-  })
+  }, 3000)
 } catch (error) {
   console.log('An error caught');
   console.log('Error message: ' + error);
@@ -635,4 +635,22 @@ try {
 
 
 
+// JavaScript throw Statement
+// In JavaScript, the throw statement handles user - defined exceptions(errors) .For example, if a certain number is divided by 0, and if you need to consider Infinity as an exception(error), you can use the throw statement to handle that exception.
+const numberdjdjf = 40;
+try {
+  if (numberdjdjf > 50) {
+    console.log('Success');
+  }
+  else {
+    // user-defined throw statement
+    throw new Error('The number is low');
+  }
+  // if throw executes, the below code does not execute
+  console.log('hello');
+}
+catch (error) {
+  console.log('An error caught');
+  console.log('Error message: ' + error);
+}
 
