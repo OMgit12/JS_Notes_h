@@ -124,3 +124,52 @@ let y5 = 7;
 // console.log(x5); // 7
 // console.log(y5); // 4
 
+// JavaScript Classes
+// In JavaScript ES6, classes provide a way to create blueprints for objects, similar to traditional object-oriented programming languages like C++ or Java.
+
+// define a class named 'Person'
+class Person10 {
+    // class constructor to initialize the 'name' and 'age' properties
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.address = "New York"; // default value for address property
+    }
+    // method to display a message
+    greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old. and I live in ${this.address}`);
+    }
+}
+
+// create two instances of the Person class
+let person11 = new Person10("Jack", 30);
+// let person2 = new Person("Tina", 33);
+
+// call greet() method on two instances 
+person11.greet();
+
+
+// Class Inheritance
+// Inheritance enables you to define a class that takes all the functionality from a parent class and allows you to add more.
+// Using class inheritance, a class can inherit all the methods and properties of another class.
+// To use class inheritance, you use the extends keyword. For example,
+// parent class
+class Persons {
+    constructor(name) {
+        this.name = name;
+    }
+    greet() {
+        console.log(`Hello ${this.name}`);
+    }
+}
+
+// inheriting parent class
+class Student extends Persons {
+    constructor(name) {
+        // call the super class constructor and pass in the name parameter
+        super(name);
+    }
+}
+
+let student1 = new Student('Jack');
+student1.greet();
