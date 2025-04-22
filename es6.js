@@ -173,3 +173,59 @@ class Student extends Persons {
 
 let student1 = new Student('Jack');
 student1.greet();
+
+
+
+// JavaScript for...of loop
+// The for..of loop in JavaScript allows you to iterate over iterable objects(arrays, sets, maps, strings etc).
+// array
+const students = ['John', 'Sara', 'Jack'];
+
+// using for...of
+for (let element of students) {
+    // display the values
+    console.log(element);
+}
+
+// for...of with Strings
+// You can use for...of loop to iterate over string values. For example,
+const string = 'code';
+// using for...of loop
+for (let i of string) {
+    // console.log(i);
+}
+
+
+
+// javascript Asyncronous Programming
+// Javascript setTimeout()
+// The setTimeout() method executes a block of code after the specified time. The method executes the code only once.
+// setTimeout(function, milliseconds);  syntax
+
+let afhfhd = setTimeout(() => {
+    console.log('Hello');
+}, 3000); // output Hello after 3 seconds
+
+// console.log(afhfhd); // output 1
+
+
+// JavaScript CallBack Function
+// In JavaScript, you can also pass a function as an argument to a function. This function that is passed as an argument inside of another function is called a callback function. For example,
+// function
+function greet(name, callback) {
+    console.log('Hi' + ' ' + name);
+    callback();
+}
+
+// callback function
+function callMe() {
+    console.log('I am callback function');
+}
+// passing function as an argument
+greet('Peter', callMe); // in this callback = callMe and then we call the callback function inside the greet() function. we cannot call the callback function directly. because it is passed as an argument to the greet() function.
+
+// In the above program, there are two functions. While calling the greet() function, two arguments (a string value and a function) are passed.
+// The callMe() function is a callback function.
+
+// The benefit of using a callback function is that you can wait for the result of a previous function call and then execute another function call.
+
