@@ -84,3 +84,52 @@ const obj1 = {
 // converting JavaScript object to JSON
 const jsonData1 = JSON.stringify(obj1);
 console.log(jsonData1); // {"name":"harry","age":26}
+
+
+
+
+// JavaScript Date and Time
+// In JavaScript, date and time are represented by the Date object.The Date object provides the date and time information and also provides various methods.
+
+// Creating Date Objects
+// There are four ways to create a date object.
+
+// new Date()
+// new Date(milliseconds)
+// new Date(Date string)
+// new Date(year, month, day, hours, minutes, seconds, milliseconds)
+
+// new Date()
+// You can create a date object using the new Date() constructor.For example,
+const timeNow = new Date();
+console.log(timeNow); // shows current date and time
+
+
+// Formatting a Date
+// Unlike other programming languages, JavaScript does not provide a built -in function for formatting a date.
+// However, you can extract individual bits and use it like this.
+
+const currentDate = new Date();
+const date = currentDate.getDate();
+const month = currentDate.getMonth();
+const year = currentDate.getFullYear();
+const time = currentDate.getTime(); // returns the number of milliseconds since January 1, 1970
+
+// show in specific format
+let monthDateYear = (month + 1) + '/' + date + '/' + year;
+
+console.log(monthDateYear); // 7/3/2020
+
+
+
+
+// JavaScript "use strict"
+// In JavaScript, 'use strict'; states that the code should be executed in 'strict mode'. This makes it easier to write good and secure JS code. For example,
+myVariable = 9;
+
+// Here, myVariable is created without declaring.This works as a global variable in JavaScript.However, if you use this in strict mode, the program will throw an error.For example,
+'use strict';
+// Error
+myVariable = 9;
+//  The above code throws an error because myVariable is not declared. In strict mode, you cannot use the variable without declaring them.
+
