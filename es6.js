@@ -406,6 +406,8 @@ async function asyncFunc() {
 // calling the async function
 asyncFunc(); // Promise resolved
 
+// In the above program, we have used try/catch block to handle the errors. If the program runs successfully, it will go to the try block. And if the program throws an error, it will go to the catch block.
+
 
 
 
