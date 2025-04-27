@@ -104,7 +104,7 @@ const arr5 = arr4.slice(1, 3); // return the array from index 1 to 3
 // console.log(arr5);
 
 // splice() method in js array to add or remove the element from the array
-const arr6 = arr4.splice(1, 4); // remove the element from index 1 to 4
+const arr6 = arr4.splice(1, 4); // remove the element from index 1 to 4 , splice(1,4) means remove 4 element from index 1
 // console.log(arr6);
 const arr7 = arr4.splice(1, 1);
 // console.log(arr7);
@@ -183,7 +183,7 @@ const secondLargestElement = (arr) => {
   }
 }
 
-console.log(secondLargestElement(arr12));
+// console.log(secondLargestElement(arr12));
 
 
 
@@ -197,5 +197,36 @@ const rotateArray = (arr, k) => {
   return rotatedArray; // this will return the rotated array
 }
 
-console.log(rotateArray(arrall, 2));
+// console.log(rotateArray(arrall, 2));
 
+
+// reverse the array in place
+
+const reverseArray = (arr, left, right) => {
+  while (left < right) {
+    const temp = arr[left]; // this will return the left element in the array
+    arr[left] = arr[right]; // this will return the right element in the array
+    arr[right] = temp; // this will return the temp element in the array
+    left++; // this will increment the left element in the array
+    right--; // this will decrement the right element in the array
+  }
+  return arr; // this will return the reversed array
+}
+
+// console.log(reverseArray(arrall, 0, arrall.length - 1)); // this will return the reversed array
+
+
+[4, 5, 3, 6, 4, 6, 3, 2, 1, 8, 9]
+// remove duplicates from the array
+const removeDuplicates = (nums) => {
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] === nums[i + 1]) {
+      nums.splice(i + 1, 1); // this will remove the duplicate element from the array
+      i--; // this will decrement the i element in the array
+    }
+  }
+
+  return nums.length; // this will return the array without duplicates
+}
+
+console.log(removeDuplicates([4, 5, 3, 6, 4, 6, 3, 2, 1, 8, 9])); // this will return the array without duplicates
