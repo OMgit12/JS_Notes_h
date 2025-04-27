@@ -183,4 +183,19 @@ const secondLargestElement = (arr) => {
   }
 }
 
-console.log(secondLargestElement(arr12)); 
+console.log(secondLargestElement(arr12));
+
+
+
+// rotate the array by k times
+arrall = [1, 2, 3, 4, 5, 6, 7]; // this is the array to be rotated
+
+const rotateArray = (arr, k) => {
+  const n = arr.length; // this will return the length of the array
+  // k = k % n; // this will return the remainder of k divided by n
+  const rotatedArray = [...arr.slice(n - k), ...arr.slice(0, n - k)]; // this will return the rotated array
+  return rotatedArray; // this will return the rotated array
+}
+
+console.log(rotateArray(arrall, 2));
+
