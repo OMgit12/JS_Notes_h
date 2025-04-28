@@ -1,0 +1,79 @@
+// String Create
+
+const str = new String('hello world'); // String object
+const str2 = "happy"; // double quotes
+const str3 = 'harry'; // single quotes
+const str4 = `hello ${str3}`; // template literal
+
+
+const all = "hello world";
+
+// length of string
+console.log(all.length); // 11 
+
+// Accessing string value
+// console.log(all[7]); // this will return the 7th index of the string value is "o"
+// console.log(all.charAt(10)); // they both are same  
+
+// looping in string
+for (let i = 0; i <= all.length - 1; i++) { // in this - 1 because string index start with (0 to n-1) but length is (1 to n) 
+    console.log(all[i]);
+}
+
+// modifiy string 
+all[3] = "a" // this will not change string because in js strings are immutable we need to use the replace method to change and mutate the string  
+// console.log(all);
+// replace method in js string to replace the string value with new value in which first parameter is the value to be replaced and second parameter is the new value
+// console.log(all.replace("world", "harry")); // this will return the new string with the value replaced original string will not be changed
+// console.log(all.replaceAll("o", "a")); // this will return the new string with the value replaced all the occurences of the value will be replaced with the new value original string will not be changed
+// console.log(all); // this will return the original string
+
+const newstr = all.concat(` how are you all`)
+console.log(newstr); // this will return the new string with the value concatenated with the original string
+
+const newstr2 = "      hello harry    "
+newstr2.trim() // this will return the new string with the value trimmed from both sides of the string
+
+// searching in string
+newstr.indexOf("o"); // this will return the index of the first occurence of the value in the string
+newstr.lastIndexOf("h"); // this will return the index of the last occurence of the value in the string, in this case it will return 6
+newstr.startsWith("h"); // this will return true, if the string starts with the value. in this case it will return true
+newstr.endsWith("o"); // this will return true, if the string ends with the value. in this case it will return false
+
+
+// extracting string
+// slice method in js string to extract the string value from the string, first parameter is the starting index and second parameter is the ending index
+all.slice(0, 5); // this will return the string from 0 to 5 index, in this case it will return "hello"
+all.slice(0, -1); // this will return the string from 0 to -1 index, in this case it will return "hello worl"
+all.slice(-5); // this will return the string from -5 to end of the string, in this case it will return "world"
+all.substring(0, 5); // this will return the string from 0 to 5 index, in this case it will return "hello"
+
+
+// converting number to string
+const num = 1234;
+num.toString(); // this will return the string value of the number
+String(num); // this will return the string value of the number, in this case it will return "1234"
+
+const obj1 = { name: "harry" };
+String(obj1); // this will return the string value of the object, in this case it will return "[object Object]"
+JSON.stringify(obj1); // this will return the string value of the object in JSON format, in this case it will return "{"name":"harr y"}"
+
+// converting string to number
+const str5 = "1234";
+parseInt(str5); // this will return the number value of the string, in this case it will return 1234
+parseFloat(str5); // this will return the number value of the string, in this case it will return 1234
+
+str.toUpperCase(); // this will return the string in upper case, in this case it will return "HELLO WORLD"
+str.toLowerCase(); // this will return the string in lower case, in this case it will return "hello world"
+
+// string comparison
+str.localeCompare(str2); // this will return -1, if str is less than str2, 0 if they are equal and 1 if str is greater than str2
+str.includes("hello"); // this will return true, if the string includes the value, in this case it will return true
+
+
+// string split and join 
+all.split(" "); // this will return the array of string, in this case it will return ["hello", "world"]
+all.join(" "); // this will return the string from the array, in this case it will return "hello world"
+all.split("h"); // this will return the array of string, in this case it will return ["ello worl", ""]
+
+
