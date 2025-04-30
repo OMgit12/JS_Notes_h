@@ -73,7 +73,32 @@ str.includes("hello"); // this will return true, if the string includes the valu
 
 // string split and join 
 all.split(" "); // this will return the array of string, in this case it will return ["hello", "world"]
-all.join(" "); // this will return the string from the array, in this case it will return "hello world"
+// all.join(" "); // this will return the string from the array, in this case it will return "hello world"
 all.split("h"); // this will return the array of string, in this case it will return ["ello worl", ""]
 
 
+
+// trucate string
+function truncateString(str, maxLength) {
+    if (str.length > maxLength) {
+        return str.slice(0, maxLength) + "...";
+    }
+    return str;
+}
+
+console.log(truncateString("Subscribe my youtube channel", 9));
+
+
+// number is palindrome or not 
+
+function isPalindrome(num) {
+    if (!num) {
+        return "please provide the NUMBER"
+    }
+    if (typeof num !== "number") {
+        return "please provide the valid and NUMBER only"
+    }
+    return parseInt(num.toString().split("").reverse().join("")) // 121 => "121" => ["1","2","1"] => ["1","2","1"] => "121" => 121
+}
+
+console.log(isPalindrome(123));

@@ -43,19 +43,19 @@ let result;
 
 // convert number to string
 result = "3" + 2;
-console.log(result, "-", typeof result);
+console.log(result, "-", typeof result); // "32" - string
 
 result = "3" + true;
-console.log(result, "-", typeof result);
+console.log(result, "-", typeof result); // "3true" - string
 
 result = "3" + null;
-console.log(result, "-", typeof result);
+console.log(result, "-", typeof result); // "3null" - string
 
 // js mei jb bhi apn kisi string ko number mei convert krna hota hai to use parseInt() function use krte hain.
 let str = "123";
 let num1 = parseInt(str);
 // console.log(typeof num1);
-
+  
 let a = "123.45";
 console.log(a);
 
