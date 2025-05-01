@@ -102,3 +102,56 @@ function isPalindrome(num) {
 }
 
 console.log(isPalindrome(123));
+
+
+
+// Hamming Distance  
+// given two strings of equal length, return the number of characters that are different between them   
+
+// input x = "hello" , y = "hewwl"
+// output = 3
+// explanation:
+// the hamming distance between "hello" and "hewwl" is 3 because the number of characters that are different between them is 3
+
+function hammingDistance(str1, str2) {
+    if (str1.length !== str2.length) {
+        throw new Error("string 1 length is not equal to string 2 ")
+    }
+
+    let a = 0
+
+    for (let i = 0; i < str1.length; i++) {
+        if (str1[i] !== str2[i]) {
+            a++
+        }
+    }
+
+    return a
+}
+
+console.log(hammingDistance("hello", "hewwl"))
+
+
+
+// number is anagram or not
+// input x = "listen" , y = "silent"
+// output = true
+// explanation:
+// the number is anagram because the number of characters that are different between them is 0
+
+function anagram(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false
+    }
+
+    str1 = str1.split("").sort().join("")
+    str2 = str2.split("").sort().join("")
+
+    if (str1 === str2) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(anagram("listen", "silentss"))
