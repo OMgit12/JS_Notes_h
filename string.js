@@ -154,4 +154,4 @@ function anagram(str1, str2) {
     }
 }
 
-console.log(anagram("listen", "silentss"))
+console.log(anagram("listen", "silent"))
