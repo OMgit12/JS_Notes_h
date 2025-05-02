@@ -16,7 +16,7 @@ console.log(all.length); // 11
 // console.log(all.charAt(10)); // they both are same  
 
 // looping in string
-for (let i = 0; i <= all.length - 1; i++) { // in this - 1 because string index start with (0 to n-1) but length is (1 to n) 
+for (let i = 0; i < all.length; i++) { // in this - 1 because string index start with (0 to n-1) but length is (1 to n) 
     console.log(all[i]);
 }
 
