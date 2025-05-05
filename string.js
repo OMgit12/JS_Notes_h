@@ -155,3 +155,42 @@ function anagram(str1, str2) {
 }
 
 console.log(anagram("listen", "silent"))
+
+
+// reverse string 
+function reverseString(str) {
+    return str.split("").reverse().join("") // split convert string to array ["h","e",'l','l',"o"] then reverse the array and join the array to string
+}
+
+console.log(reverseString("hello")) // olleh  // Time Complexity: O(n)
+
+
+
+// Implement a Queue using Two Stacks
+
+class QueueWithTwoStacks {
+    constructor() {
+        this.stack1 = [];
+        this.stack2 = [];
+    }
+
+    enqueue(element) {
+        this.stack1.push(element);
+    }
+
+    dequeue() {
+        if (this.stack2.length === 0) {
+            while (this.stack1.length > 0) {
+                this.stack2.push(this.stack1.pop());
+            }
+        }
+        return this.stack2.pop();
+    }
+}
+
+const queue = new QueueWithTwoStacks();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+console.log(queue.dequeue()); // Output: 1
+console.log(queue.dequeue()); // Output: 2
