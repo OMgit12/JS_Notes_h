@@ -107,7 +107,7 @@ let arrValue1 = [10];
 // assigning default value 5 and 7
 let [x2 = 5, y2 = 7] = arrValue1;
 
-console.log(x2); // 10
+console.log(x2); // 5
 console.log(y2); // 7
 
 
