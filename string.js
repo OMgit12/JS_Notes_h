@@ -78,7 +78,7 @@ all.split("h"); // this will return the array of string, in this case it will re
 
 
 
-// trucate string
+// trucate string means to limit the length of the string ex ample "hello world" to "hello wo..."
 function truncateString(str, maxLength) {
     if (str.length > maxLength) {
         return str.slice(0, maxLength) + "...";

@@ -82,14 +82,7 @@ while (i < 5) {
   i++;
 }
 
-// do-while loop in js
-let j = 0;
-do {
-  console.log(j);
-  j++;
-} while (j < 5);
-
-// switch case in js
+// d
 let day = "sunday";
 switch (day) {
   case "monday":
@@ -99,7 +92,7 @@ switch (day) {
     console.log("tuesday");
     break;
   default:
-    console.log("invalid day");
+    console.log("invalid day"); // this will execute if the day is not monday or tuesday
 }
 
 // continue statement in js
@@ -432,14 +425,13 @@ function daku(name, age, hobby) {
   this.age = age;
   this.hobby = hobby;
   this.greet = function () {
-    console.log("Harry says hi!");
+    console.log(`Harry says hi to ${this.name}`);
   }
 }
 
 const daku1 = new daku("John", 23, "dancing");
 // console.log(daku1.name); // John
-// console.log(daku1.greet()); // hello
-
+// console.log(daku1.greet()); // Harry says hi to John
 
 
 

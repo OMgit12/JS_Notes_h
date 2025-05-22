@@ -363,8 +363,8 @@ f().then(function (result) {
 // The use of await pauses the async function until the promise returns a result(resolve or reject) value.For example,
 
 // a promise
-let promise1 = new Promise(function (resolve, reject) {
-    setTimeout(function () {
+let promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
         resolve('Promise resolved')
     }, 4000);
 });
@@ -374,8 +374,8 @@ async function asyncFunc() {
     // wait until the promise resolves 
     let result = await promise1;
 
-    console.log(result);
-    console.log('hello');
+    console.log(result); // Promise resolved 
+    console.log('hello'); // this will be printed after the promise is resolved meaning after 4 seconds
 }
 
 // calling the async function
