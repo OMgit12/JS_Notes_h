@@ -238,3 +238,38 @@ function extractSubstring(str, start, end) {
 
 console.log(extractSubstring("hello world", 0, 3)); // hel
 
+
+
+// Write a JavaScript function to convert a string into abbreviated form.
+// input x = "Robin Singh"   --- output = "Robin S."
+
+function abbreviateName(str) {
+    if (typeof str !== "string") {
+        return `please provide the valid string`
+    }
+
+    const spilatedName = str.trim().split(" ") // this will return the array of words from the string
+
+    if (spilatedName.length > 1) {
+        return `${spilatedName[0].charAt(0)}. ${spilatedName[1]}.`
+    }
+}
+
+console.log(abbreviateName("Robin Singh")); // Robin S.
+
+
+
+// Write a JavaScript function that hides email addresses to prevent unauthorized access.
+
+function hideEmail(email) {
+    if (typeof email !== "string") {
+        return `please provide the valid string`
+    }
+
+    const [username, domain] = email.split("@");
+    const hiddenUserName = username.slice(0, 3) + "***" + domain
+
+    return hiddenUserName
+}
+
+console.log(hideEmail("Harrysh.jpr@example.com")); // "har***@gmail.com"
