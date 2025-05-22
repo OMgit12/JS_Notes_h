@@ -194,3 +194,47 @@ queue.enqueue(2);
 queue.enqueue(3);
 console.log(queue.dequeue()); // Output: 1
 console.log(queue.dequeue()); // Output: 2
+
+
+
+// check blank string 
+function isBlank(str) {
+
+    if (typeof str !== "string") {
+        return `please provide the valid string`
+    }
+    console.log("str.length>>>", str.length);
+    if (str.length === 0) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(isBlank("")); // true
+console.log(isBlank("hello")); // false
+
+
+// String to Array of Words
+function stringToArray(str) {
+    if (typeof str !== "string") {
+        return `please provide the valid string`
+    }
+
+    return str.split(" ").reverse().join(" ") // this will return the array of words from the string
+}
+
+console.log(stringToArray("hello world")); // ["hello", "world"]
+
+
+// extracting substring from string
+function extractSubstring(str, start, end) {
+    if (typeof str !== "string") {
+        return `please provide the valid string`
+    }
+    return str.substring(start, end) // this will return the substring from the string
+}
+
+
+console.log(extractSubstring("hello world", 0, 3)); // hel
+
