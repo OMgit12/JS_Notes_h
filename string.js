@@ -41,9 +41,9 @@ newstr.startsWith("h"); // this will return true, if the string starts with the 
 newstr.endsWith("o"); // this will return true, if the string ends with the value. in this case it will return false
 
 
-// extracting string
+// extracting string means kisi string me se koi part ko nikalna string 
 // slice method in js string to extract the string value from the string, first parameter is the starting index and second parameter is the ending index
-all.slice(0, 5); // this will return the string from 0 to 5 index, in this case it will return "hello"
+all.slice(0, 5); // this will return the string from 0 to 5 index, in this case it will return "hello", last index is not included like 5 is not included
 all.slice(0, -1); // this will return the string from 0 to -1 index, in this case it will return "hello worl"
 all.slice(-5); // this will return the string from -5 to end of the string, in this case it will return "world"
 all.substring(0, 5); // this will return the string from 0 to 5 index, in this case it will return "hello"
@@ -56,7 +56,7 @@ String(num); // this will return the string value of the number, in this case it
 
 const obj1 = { name: "harry" };
 String(obj1); // this will return the string value of the object, in this case it will return "[object Object]"
-JSON.stringify(obj1); // this will return the string value of the object in JSON format, in this case it will return "{"name":"harr y"}"
+JSON.stringify(obj1); // this will return the string value of the object in JSON format, in this case it will return "{"name":"harry"}"
 
 // converting string to number
 const str5 = "1234";
