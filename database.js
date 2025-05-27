@@ -223,3 +223,97 @@ WHERE country IN('USA');`
 query = `SELECT first_name, country
 FROM Customers
 WHERE country IN('USA', 'UK');`
+
+
+
+// SQL BETWEEN Operator
+// In SQL, the BETWEEN operator with the WHERE clause selects values within a given range.
+query = `SELECT * 
+FROM Orders
+WHERE amount BETWEEN 200 AND 600;`
+
+
+// SQL NOT BETWEEN Operator
+// The NOT BETWEEN operator is used to exclude the rows that match the values in the range.It returns all the rows except the excluded rows.
+query = `SELECT item, amount
+FROM Orders
+WHERE amount NOT BETWEEN 300 AND 500;`
+
+
+
+// SQL IS NULL and IS NOT NULL
+// In SQL, IS NULL and IS NOT NULL are used to check if a column in a table contains a NULL value or not.
+
+// IS NULL Syntax
+query = `select * 
+from Customers 
+where email is null;`
+
+
+// IS NOT NULL
+Syntax = `SELECT column1, column2, ...
+FROM table
+WHERE column_name IS NOT NULL;`
+
+// --select rows where email is not NULL
+que = `SELECT *
+    FROM Employee
+WHERE email IS NOT NULL;`
+
+
+// IS NULL With COUNT()
+query = `SELECT COUNT(*)
+FROM Employee
+WHERE email IS NULL;`   // output is the number of rows where email is NULL
+
+
+
+// The MAX() function returns the maximum value of a column.
+// The MIN() function returns the minimum value of a column.
+
+// SQL MAX() Function
+Syntax = `SELECT MAX(column_name)
+FROM table_name;`
+// --select the maximum age from Customers table
+query = `SELECT MAX(age)
+FROM Customers;`
+
+// SQL MIN() Function
+Syntax = `SELECT MIN(column_name)
+FROM table_name;`
+// --select the minimum age from Customers table
+query = `SELECT MIN(age)
+FROM Customers;`
+
+// -- use max_age as an alias for the maximum age
+query = `SELECT MAX(age) AS max_age
+FROM Customers;`
+
+// MAX() and MIN() With Strings
+
+// --select the minimum value of first_name from Customers
+query = `SELECT MIN(first_name) AS min_first_name
+FROM Customers;`
+// Here, the SQL command selects the minimum value of first_name based on the dictionary order.
+
+
+// However, if we want to select the whole row containing that value, we can use the nested SELECT statement like this.
+// --MIN() function in a nested SELECT statement
+qruey = `SELECT * FROM Customers                    // select all columns from the Customers table
+WHERE age = (
+    SELECT MIN(age)                         // select the minimum age from Customers table     
+    FROM Customers 
+);`
+
+
+
+// SQL COUNT()
+// --returns the number of rows in the Customers table
+query = ` SELECT COUNT(*)
+FROM Customers;`
+// Here, the above SQL command counts and returns the number of rows in the Customers table.
+
+// COUNT() With DISTINCT
+// --count the unique countries in Customers table
+query = `SELECT COUNT(DISTINCT country)
+FROM Customers;`
