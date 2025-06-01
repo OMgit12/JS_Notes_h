@@ -317,3 +317,244 @@ FROM Customers;`
 // --count the unique countries in Customers table
 query = `SELECT COUNT(DISTINCT country)
 FROM Customers;`
+
+
+
+
+//SQL SUM() AND AVG()
+// In SQL, the SUM() and AVG() functions are used to calculate total and average values in numeric columns.
+
+// --select the sum of amount from Orders table
+query = `SELECT SUM(amount) AS total_sales
+FROM Orders;`
+
+
+// --get average age of customers
+query = `SELECT AVG(age) AS average_age
+FROM Customers;`
+
+
+
+
+
+
+// SQL ORDER BY Clause
+// The ORDER BY clause in SQL is used to sort the result set in ascending or descending order.
+// --orders all rows from Customers in ascending order by age
+query = `SELECT *
+    FROM Customers
+ORDER BY age ASC;`       // here ASC means ascending order and if we want to sort in descending order we can use DESC instead of ASC
+
+// ORDER BY With Multiple Columns
+// --sort all rows from Customers, first by first_name and then by age
+query = `SELECT *
+    FROM Customers
+ORDER BY first_name, age;`
+
+
+
+
+
+// SQL GROUP BY
+// -- count the number of customers in each country
+
+query = `SELECT country, COUNT(*) AS number
+FROM Customers
+GROUP BY country;`
+
+
+// SQL LIKE and NOT LIKE Operators
+// We use the SQL LIKE operator with the WHERE clause to get a result set that matches the given string pattern.
+// --select customers who live in the UK 
+
+query = `SELECT first_name
+FROM Customers
+WHERE country LIKE 'UK';`
+
+
+qruey = `SELECT first_name
+FROM Customers
+WHERE country LIKE 'U%';` // here % is a wildcard character that matches any number of characters
+
+// SQL NOT LIKE Operator
+// The NOT LIKE operator is used to exclude the rows that match the given string pattern.
+query = `SELECT first_name
+FROM Customers
+WHERE country NOT LIKE 'U%';` // or we can use NOT LIKE 'UK' to exclude the rows that match the UK country
+
+
+// SQL Wildcards
+// A wildcard character in SQL is used with the LIKE clause to replace a single character or a set of characters in a string.
+
+// --select rows where the last name
+// --of customers start with R 
+query = ` SELECT *
+        FROM Customers
+    WHERE last_name LIKE 'R%';`
+
+
+//SQL UNION
+// In SQL, the UNION operator selects fields from two or more tables.
+
+// -- select the union of name columns from two tables Teachers and Students 
+query = `SELECT name
+FROM Teachers
+UNION
+SELECT name
+FROM Students;`
+// Here, the SQL command returns the age columns from the Teachers and the Students tables, ignoring the duplicate fields.
+
+
+// SQL UNION With WHERE Clause
+// -- select the union of age columns from both Teachers and Students tables where age >= 20
+query = `SELECT age, name FROM Teachers
+WHERE age >= 20
+UNION
+SELECT age, name FROM Students
+WHERE age >= 20;`
+// Here, the SQL command selects the age column (only the unique values) from both tables where the age is greater than or equal to 20.
+
+// SQL UNION ALL
+// The UNION ALL operator selects fields from two or more tables, including duplicate fields.
+query = `SELECT name
+FROM Teachers
+UNION ALL
+SELECT name
+FROM Students;`
+
+
+// SQL UNION ALL With WHERE Clause
+// -- select the union of age columns from both Teachers and Students tables where age >= 20
+query = `SELECT age, name FROM Teachers
+WHERE age >= 20
+UNION ALL
+SELECT age, name FROM Students
+WHERE age >= 20;`
+// Here, the SQL command selects the age column from both tables(including duplicate values) where the age is greater than or equal to 20.
+
+
+
+// SQL Subquery
+// In SQL, a SELECT statement may contain another SQL statement, known as a subquery or nested query.
+
+// -- select all the rows from the Customers table
+// -- with the minimum age
+
+qruey = ` SELECT *
+    FROM Customers
+WHERE age = (
+    SELECT MIN(age)  // select the minimum age from Customers table
+  FROM Customers  // inner query return "single value" which is then used in the outer query to filter the rows
+);`
+
+
+
+// SQL Views
+// A view is a virtual table in SQL that is based on the result of a SELECT query.
+// In SQL, views contain rows and columns similar to a table, however, views don't hold the actual data.
+// You can think of a view as a virtual table environment that's created from one or more tables so that it's easier to work with data.
+
+// Creating a View in SQL
+// We can create views in SQL by using the " CREATE VIEW " command. For example,
+
+query = ` CREATE VIEW us_customers AS
+SELECT customer_id, first_name
+FROM Customers
+WHERE Country = 'USA';`
+// Here, a view named us_customers is created from the customers table.
+
+// Now to select the customers who lives in USA, we can simply run,
+qruey = `SELECT * FROM us_customers;`
+
+
+// Updating a View
+// It's possible to change or update an existing view using the CREATE OR REPLACE VIEW command. For example,
+
+qruey = `CREATE OR REPLACE VIEW us_customers AS
+SELECT *
+    FROM Customers
+WHERE Country = 'USA';`
+// Here, the us_customers view is updated to show all the fields.
+
+// Deleting a View
+//We can delete views using the DROP VIEW command. For example,
+qruey = `DROP VIEW us_customers;`
+
+
+// Views for Complex Queries
+// Suppose A and B are two tables and we wan't to select data from both of the tables. For that, we have to use SQL JOINS.
+qruey = ` CREATE VIEW order_details AS
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+JOIN Orders
+ON Customers.customer_id = Orders.customer_id;`
+
+
+
+
+// SQL HAVING Clause
+// The SQL HAVING clause is used if we need to filter the result set based on aggregate functions such as MIN() and MAX(), SUM() and AVG(), and COUNT().
+// -- select the count of customer ids greater than one and their corresponding country 
+query = `SELECT COUNT(customer_id), country
+FROM Customers
+GROUP BY country
+HAVING COUNT(customer_id) > 1;`
+
+
+
+
+
+
+
+
+
+
+// SQL CREATE DATABASE Statement
+// The CREATE DATABASE statement is the SQL command used to create databases.
+qruey = `CREATE DATABASE my_db;`
+// Here, the SQL command creates a database named my_db.
+
+// CREATE DATABASE IF NOT EXISTS
+// If a database already exists, SQL will throw an error while creating another database of the same name.
+// In such situations, we can use the CREATE DATABASE IF NOT EXISTS statement to create a database only if there is no existing database with the same name.For example,
+
+query = `CREATE DATABASE IF NOT EXISTS my_db;`
+
+// List all Databases
+qruey = `SHOW DATABASES;`
+
+// Switch Databases
+// We often have to work with multiple databases. To switch between available databases, we can run the following statement.
+query = `USE my_db;`
+
+
+
+// SQL CREATE TABLE
+// The SQL CREATE TABLE statement is used to create a database table.We use this table to store records(data).For example,
+
+// -- create a table named Companies with different columns
+query = `CREATE TABLE Companies(
+    id int,
+    name varchar(50),
+    address text,
+    email varchar(50),
+    phone varchar(10)
+);`
+// Here, the SQL command creates a database named Companies with the columns: id, name, address, email and phone.
+// The table we created will not contain any data as we have not inserted anything into the table
+
+
+// CREATE TABLE IF NOT EXISTS
+// If we try to create a table that already exists, we get an error message 'Error: table already exists'.
+// To fix this issue, we can add the optional IF NOT EXISTS command while creating a table.
+
+// --create a Companies table if it does not exist
+query = `CREATE TABLE IF NOT EXISTS Companies(
+    id int,
+    name varchar(50),
+    address text,
+    email varchar(50),
+    phone varchar(10)
+);`
+
+
