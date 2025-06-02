@@ -556,5 +556,261 @@ query = `CREATE TABLE IF NOT EXISTS Companies(
     email varchar(50),
     phone varchar(10)
 );`
+// Here, the SQL command checks if a table named Companies exists, and if not, it creates a table with specified columns.
 
 
+
+// Create Table Using Another Existing Table
+// In SQL, we can create a new table by duplicating an existing table's structure.
+
+// --create a backup table from the existing table Customers
+query = `CREATE TABLE CustomersBackup
+AS
+SELECT *
+    FROM Customers;`
+
+
+
+
+// SQL DROP DATABASE Statement
+// In SQL, DROP DATABASE is used to delete a database from our Database Management System.
+query = `DROP DATABASE my_database;`
+// Also, you need admin or DROP permission to run this command.
+
+
+// SQL DROP TABLE Statement
+// The SQL DROP TABLE statement is used to delete a table from a database.
+// -- delete Shippings table
+query = `DROP TABLE Shippings;`
+// Also, make sure you have admin or DROP permission to run this command.
+
+// DROP TABLE IF EXISTS
+// If a table does not exist, dropping it will throw an error.To fix this issue, we can add the optional IF EXISTS command while dropping a table.For example,
+
+// -- delete Orders table if it exists
+query = `DROP TABLE IF EXISTS Orders;`
+
+
+
+// SQL ALTER TABLE Statement
+// -- add phone column to Customers table
+query = `ALTER TABLE Customers
+ADD phone varchar(10);`
+// Here, the SQL command adds a column named phone to the Customers table.
+
+
+// ALTER TABLE Operations
+// We can perform the following operations on a table using the ALTER TABLE command:
+
+// Add a column
+// Rename a column
+// Modify a column
+// Delete a column
+// Rename a table
+
+
+// Add Column in a Table
+// We can add a new column to an existing table using the ALTER TABLE command with the ADD keyword.
+query = `ALTER TABLE Customers
+ADD phone varchar(10);`
+// Add Multiple Columns in a Table
+query = `ALTER TABLE Customers
+ADD email varchar(50),
+address varchar(100);`
+
+// Rename a Column in a Table
+// We can rename a column in a table using the ALTER TABLE command with the RENAME COLUMN keyword.
+query = `ALTER TABLE Customers
+RENAME COLUMN phone TO mobile;`
+// Here, the SQL command renames the phone column to mobile in the Customers table.
+
+// Modify the Data Type of a Column
+// We can modify the data type of a column in a table using the ALTER TABLE command with the MODIFY keyword.
+query = `ALTER TABLE Customers
+MODIFY COLUMN phone varchar(20);`
+
+
+// Drop Column in a Table
+// We can drop a column from a table using the ALTER TABLE command with the DROP COLUMN keyword.
+query = `ALTER TABLE Customers
+DROP COLUMN phone;`
+
+// Rename a Table
+// We can rename a table using the ALTER TABLE command with the RENAME TO keyword.
+query = `ALTER TABLE Customers
+RENAME TO Suppliers;`
+// Here, the SQL command renames the Customers table to Suppliers.
+
+
+
+// SQL BACKUP DATABASE Statement
+// In SQL, the BACKUP DATABASE statement is used to create database backups.
+// –- backup database to the given path
+query = `BACKUP DATABASE my_db
+TO DISK = 'C:\my_db_backup.bak';`
+// Here, the SQL command creates a backup file of the my_db database inside C drive, named my_db_backup.bak.
+
+// Types of Backups in SQL
+
+// Full Backup
+// Differential Backup
+// Transaction Log (T-log) backup
+
+
+// Restore Database From Backup
+// To restore a backup file to a database management system, we can use the RESTORE DATABASE command. For example,
+
+query = `RESTORE DATABASE my_db
+FROM DISK = 'C:\my_db_backup.bak';`
+// Here, the SQL command restores the my_db_backup.bak file to the database named my_db.
+
+
+
+// SQL INSERT INTO
+// In SQL, we use the INSERT INTO statement to insert new row(s) into a database table.
+// -- insert a row in the Customers table
+
+query = ` INSERT INTO Customers(customer_id, first_name, last_name, age, country)
+VALUES
+    (7, 'Ron', 'Weasley', 31, 'UK');`
+
+
+//  Insert Multiple Rows at Once in SQL
+query = `INSERT INTO Customers(customer_id, first_name, last_name, age, country)
+VALUES
+    (7, 'Ron', 'Weasley', 31, 'UK'),
+    (8, 'Hermione', 'Granger', 31, 'UK'),
+    (9, 'Harry', 'Potter', 31);`   // in this row the country is not specified so it will be NULL by default
+
+
+
+// SQL UPDATE
+// In SQL, the UPDATE statement is used to modify existing records (rows) in a database table.
+
+// SQL UPDATE TABLE Syntax
+Syntax = `UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+[WHERE condition];`
+
+// --update a single value in the given row
+
+query = `UPDATE Customers
+SET age = 21
+WHERE customer_id = 1;`
+// Here, the SQL command updates the age column to 21 where the customer_id equals 1.
+
+
+// Update Multiple Values in a Row
+query = `UPDATE Customers
+SET first_name = 'John', last_name = 'Doe'
+WHERE customer_id = 1;`
+
+
+// Update Multiple Rows
+query = `UPDATE Customers
+SET age = 30
+WHERE country = 'USA';`
+
+// Update all Rows
+query = `UPDATE Customers
+SET age = 30;`
+
+
+
+
+
+
+
+// SQL SELECT INTO (Copy Table)
+// In SQL, the SELECT INTO statement is used to copy data from one table to another table.
+
+// SELECT INTO Syntax
+Syntax = `SELECT column1, column2, ...
+FROM destination_table
+INTO source_table;`
+
+// -- copy data from Customers table to a new table named CustomersBackup
+query = `SELECT *
+INTO CustomersBackup
+FROM Customers;`
+// Here, the SQL command copies all the data from the Customers table to a new table named CustomersBackup.
+
+// Note: The SELECT INTO statement creates a new table. If the database already has a table with the same name, SELECT INTO gives an error.
+// If you want to copy data to an existing table (rather than creating a new table), you should use the INSERT INTO SELECT statement.
+
+
+// Copy Selected Columns Only
+// We can also copy selected columns from the old table to a new table.For example,
+// -- copy selected columns only
+query = `SELECT customer_id, country
+INTO CustomersCountry
+FROM Customers;`
+// Here, the SQL command only copies the customer_id and country columns to the CustomersCountry table.
+
+
+// Copy Records Matching a Condition
+// We can also copy records that match a specific condition from one table to another table.For example,
+// -- copy records matching a condition
+query = `SELECT * INTO CustomersUSA
+FROM Customers
+WHERE country = 'USA';`
+
+
+// Copy to Another Database
+// By default, SELECT INTO creates a new table in the current database.If we want to copy data to a table in a different database, we can do that by using the IN clause.For example,
+
+// --copy contents of a table to another database
+query = `SELECT *
+    INTO CustomersCopy
+IN another_db.mdb
+FROM Customers;`
+
+
+
+
+// SQL INSERT INTO SELECT Statement
+// The SQL INSERT INTO SELECT statement is used to copy records from one table to another existing table.
+// -- copy data to an existing table
+query = `INSERT INTO OldCustomers
+SELECT *
+    FROM Customers;`
+
+
+// Copy Selected Columns Only
+// We can also copy only the selected columns from one table to another. For example,
+// --copy selected columns only
+query = `INSERT INTO OldCustomers(customer_id, age)
+SELECT customer_id, age
+FROM Customers;`
+
+
+// Copy Data From Two Tables to One
+// We can also copy records from two different tables using the JOIN clause with INSERT INTO SELECT.For example,
+// --copy contents after joining two tables
+query = `INSERT INTO CustomersOrders
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+JOIN Orders
+ON Customers.customer_id = Orders.customer_id;`
+
+
+
+// SQL DELETE and TRUNCATE
+// In SQL, the DELETE clause is used to delete row(s) from a database table.
+query = `DELETE FROM Customers
+WHERE customer_id = 4;`
+// Here, the SQL command will delete a row from the Customers table if its customer_id is 4.
+
+
+// Delete all Rows in a Table
+query = `DELETE FROM Customers;`
+
+
+// Truncate Table in SQL
+// The TRUNCATE TABLE clause is another way to delete all rows from a table at once. For example,
+query = `TRUNCATE TABLE Customers;`
+
+
+// SQL DELETE vs. TRUNCATE
+// SQL DELETE supports the WHERE clause.	 ||         SQL TRUNCATE doesn't support the WHERE clause.
+// SQL DELETE can remove single, multiple, or all rows/records from a table.	  ||    SQL TRUNCATE can only remove all the records from a table.
