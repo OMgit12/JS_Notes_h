@@ -814,3 +814,243 @@ query = `TRUNCATE TABLE Customers;`
 // SQL DELETE vs. TRUNCATE
 // SQL DELETE supports the WHERE clause.	 ||         SQL TRUNCATE doesn't support the WHERE clause.
 // SQL DELETE can remove single, multiple, or all rows/records from a table.	  ||    SQL TRUNCATE can only remove all the records from a table.
+
+
+
+
+
+
+
+// SQL Constraints
+// In a database table, we can add rules to a column known as constraints. These rules control the data that can be stored in a column.
+// For example, if a column has NOT NULL constraint, it means the column cannot store NULL values.
+
+// NOT NULL	values cannot be null
+// UNIQUE:	values cannot match any older value
+// PRIMARY KEY:	 used to uniquely identify a row
+// FOREIGN KEY:	 references a row in another table
+// CHECK:	validates condition for new value
+// DEFAULT:	set default value if not passed
+// CREATE INDEX:	used to speedup the read process
+
+
+
+
+// SQL NOT NULL Constraint
+//  In SQL, the NOT NULL constraint in a column means that the column cannot store NULL values.
+// -- create table with NOT NULL constraint
+query = `CREATE TABLE Colleges (
+  college_id INT NOT NULL,
+  college_code VARCHAR(20),
+  college_name VARCHAR(50)
+);`
+
+// Remove NOT NULL Constraint
+// We can also remove the NOT NULL constraint if that is no longer needed. For example,
+query = `ALTER TABLE Colleges
+ALTER COLUMN college_id INT;`
+
+
+// SQL UNIQUE Constraint
+// In SQL, the UNIQUE constraint in a column means the column must have unique values.
+// -- create a table with unique constraint on college_code column
+query = ` CREATE TABLE Colleges (
+  college_code VARCHAR(20) UNIQUE,
+  college_name VARCHAR(50)
+);`
+
+
+// Create UNIQUE Constraint
+// -- create a table with unique constraint
+query = `CREATE TABLE Colleges(
+    college_id INT NOT NULL UNIQUE,
+    college_code VARCHAR(20) UNIQUE,
+    college_name VARCHAR(50)
+);`
+
+// -- insert values to Colleges table
+query = `INSERT INTO Colleges(college_id, college_code, college_name)
+VALUES(1, "ARD12", "Star Public School"), (2, "ARD13", "Galaxy School");`
+
+
+// SQL PRIMARY KEY Constraint
+// In SQL, the PRIMARY KEY constraint is used to uniquely identify rows.It is a combination of NOT NULL and UNIQUE constraints i.e.it cannot contain duplicate or NULL values.
+// --create Colleges table with primary key college_id
+query = `CREATE TABLE Colleges(
+    college_id INT,
+    college_code VARCHAR(20) NOT NULL,
+    college_name VARCHAR(50),
+    CONSTRAINT CollegePK PRIMARY KEY(college_id)
+);`
+
+
+// SQL FOREIGN KEY Constraint
+// In SQL, the FOREIGN KEY constraint is used to create a relationship between two tables.A foreign key is defined using the FOREIGN KEY and REFERENCES keywords.
+
+// --this table doesn't contain foreign keys
+query = `CREATE TABLE Customers(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(100),
+    age INTEGER
+);`
+
+// --create another table named Products
+// --add foreign key to the customer_id column
+// --the foreign key references the id column of the Customers table
+
+query = `CREATE TABLE Products(
+    customer_id INTEGER,
+    name VARCHAR(100),
+    FOREIGN KEY(customer_id)
+    REFERENCES Customers(id)
+);`
+
+
+// CHECK Constraint
+// The CHECK constraint checks the condition before allowing values in a table.For example,
+query = `CREATE TABLE Orders(
+    order_id INT PRIMARY KEY,
+    amount int CHECK(amount >= 100)
+);`
+
+
+
+// DEFAULT Constraint
+//  The DEFAULT constraint is used to set the default value if we try to store NULL in a column. For example,
+query = ` CREATE TABLE College(
+    college_id INT PRIMARY KEY,
+    college_code VARCHAR(20),
+    college_country VARCHAR(20) DEFAULT 'US'
+);`
+
+
+
+// CREATE INDEX Constraint
+// If a column has CREATE INDEX constraint, it's faster to retrieve data if we use that column for data retrieval. For example,
+// --create table
+query = ` CREATE TABLE Colleges(
+    college_id INT PRIMARY KEY,
+    college_code VARCHAR(20) NOT NULL,
+    college_name VARCHAR(50)
+);  
+
+--create index
+CREATE INDEX college_index
+ON Colleges(college_code);`
+// Here, the SQL command creates an index named college_index on the Colleges table using college_id column.
+
+
+
+
+
+
+
+
+
+
+
+// SQL JOINS
+// The SQL JOIN statement is used to combine rows from two tables based on a common column and selects records that have matching values in these columns.
+
+// SQL JOIN Syntax
+Syntax = `SELECT columns_from_both_tables
+FROM table1
+JOIN table2
+ON table1.column1 = table2.column2;`
+
+// Join Two Table Based on Common Column
+// --join Customers and Orders tables based on
+// --customer_id of Customers and customer column of Orders
+
+query = `SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+JOIN Orders
+ON Customers.customer_id = Orders.customer;`
+
+
+// JOIN Multiple Tables
+// --join three tables: Customers, Orders, and Shippings
+
+query = `SELECT Customers.first_name, Orders.item, Shippings.status
+FROM Customers
+JOIN Orders ON Customers.customer_id = Orders.customer_id
+JOIN Shippings ON Customers.customer_id = Shippings.customer;`
+// This SQL command joins three tables and selects relevant columns from each, based on the matching customer_id.
+
+
+
+// Types of SQL JOINs
+// In SQL, we have four main types of joins:
+
+// INNER JOIN
+// LEFT JOIN
+// RIGHT JOIN
+// FULL OUTER JOIN
+
+// SQL INNER JOIN
+// The SQL INNER JOIN statement joins two tables based on a common column and selects rows that have matching values in these columns.
+// -- join Customers and Orders tables with their matching fields customer_id
+
+query = `SELECT Customers.customer_id, Orders.item
+FROM Customers
+INNER JOIN Orders
+ON Customers.customer_id = Orders.customer_id;`
+// Here, the SQL command joins the Customers and Orders tables.
+// The result includes customer_id (from Customers) and item (from Orders) of rows where customer IDs match (Customer.customer_id = Orders.customer_id).
+
+
+
+// SQL LEFT JOIN
+// The SQL LEFT JOIN combines two tables based on a common column.It then selects records having matching values in these columns and the remaining rows from the left table.
+// -- left join Customers and Orders tables based on their shared customer_id columns
+// -- Customers is the left table
+// -- Orders is the right table
+
+query = `SELECT Customers.customer_id, Customers.first_name, Orders.item
+FROM Customers
+LEFT JOIN Orders
+ON Customers.customer_id = Orders.customer_id;`
+// Here, the code left joins the Customers and Orders tables based on customer_id, which is common to both tables.
+
+
+// SQL RIGHT JOIN
+// The SQL RIGHT JOIN statement joins two tables based on a common column. It selects records that have matching values in these columns and the remaining rows from the right table.
+// -- join Customers and Orders tables
+// -- based on their shared customer_id columns
+// -- Customers is the left table
+// -- Orders is the right table
+
+query = `SELECT Customers.customer_id, Customers.first_name, Orders.item
+FROM Customers
+RIGHT JOIN Orders
+ON Customers.customer_id = Orders.customer_id;`
+// Here, the code right joins the Customers and Orders tables based on customer_id, which is common to both tables. The result set contains
+
+// RIGHT JOIN With WHERE Clause
+query = `   
+FROM Customers
+RIGHT JOIN Orders
+ON Customers.customer_id = Orders.customer
+WHERE Orders.amount >= 500;`
+
+
+// SQL FULL OUTER JOIN
+// The SQL FULL OUTER JOIN statement joins two tables based on a common column. It selects records that have matching values in these columns and the remaining rows from both of the tables.
+
+// -- full join Customers and Orders tables
+// -- based on their shared customer_id columns
+// -- Customers is the left table
+// -- Orders is the right table
+
+query = ` SELECT Customers.customer_id, Customers.first_name, Orders.item
+FROM Customers
+FULL OUTER JOIN Orders
+ON Customers.customer_id = Orders.customer_id;`
+
+// SQL CROSS JOIN
+// In SQL, the CROSS JOIN operation allows us to combine rows from two or more tables without any specific relationship between them.
+query = `SELECT * 
+FROM Customers
+CROSS JOIN Orders;`
+// Here, the SQL query combines each row of the Customers table with each row of the Orders table.
+
