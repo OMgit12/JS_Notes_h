@@ -222,7 +222,7 @@ greeting();
 function greeting() {
   console.log("Welcome to Programiz.");
 }
-
+// Output: Welcome to Programiz
 
 
 
@@ -240,7 +240,6 @@ function Counter(count) {
     return  // in this case the function will return undefined and the recursion will stop.
   }
 }
-
 
 Counter(5); // 5 4 3 2 1
 
@@ -425,13 +424,13 @@ function daku(name, age, hobby) {
   this.age = age;
   this.hobby = hobby;
   this.greet = function () {
-    console.log(`Harry says hi to ${this.name}`);
+    console.log(`${this.hobby} says hi to ${this.name}`);
   }
 }
 
 const daku1 = new daku("John", 23, "dancing");
 // console.log(daku1.name); // John
-// console.log(daku1.greet()); // Harry says hi to John
+// console.log(daku1.greet()); // dancing says hi to John
 
 
 
