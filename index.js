@@ -645,3 +645,8 @@ catch (error) {
   console.log('Error message: ' + error);
 }
 
+
+console.log('This will execute after the try...catch block');
+
+
+console.log('End of the program');
