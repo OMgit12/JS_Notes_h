@@ -56,6 +56,9 @@ let str = "123";
 let num1 = parseInt(str);
 // console.log(typeof num1);
 
+
+
+
 let a = "123.45";
 console.log(a);
 
